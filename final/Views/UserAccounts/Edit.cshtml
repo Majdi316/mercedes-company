@@ -1,0 +1,51 @@
+﻿@model final.Models.UserAccount
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+<head>
+    <link rel="stylesheet" href="~/css/user-table2.css" />
+</head>
+
+
+<form asp-action="Edit">
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+  <input type="hidden" asp-for="id" />
+<div class="table-container">
+    <h1 class="heading">update your info</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <td>value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><label asp-for="name"></label></th>
+                <td><input asp-for="name" />
+                <span asp-validation-for="name" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="password"></label></th>
+                <td><input asp-for="password" />
+                <span asp-validation-for="password" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="role"></label></th>
+                <td><input asp-for="role" readonly />
+                <span asp-validation-for="role" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="email"></label></th>
+                <td><input asp-for="email" />
+                <span asp-validation-for="email" class="text-danger"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Save" class="btn-detail" />
+    <a class="btn-delete" asp-controller="Cars" asp-action="catalogue">Cancel</a>
+</div>
+</form>

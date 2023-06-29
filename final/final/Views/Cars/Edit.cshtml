@@ -1,0 +1,100 @@
+﻿@model final.Models.Cars
+
+@{
+    ViewData["Title"] = "Edit";
+}
+@{Layout = "~/Views/Shared/_admin.cshtml";}
+ <head>
+    <link rel="stylesheet" href="~/css/admin-table.css" />
+</head>
+
+<form asp-action="Edit" enctype="multipart/form-data">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+<div class="table-container">
+    <h1 class="heading">update the information Of This Car</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <td>value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><label asp-for="Car_Name"></label></th>
+                <td><input asp-for="Car_Name" />
+                <span asp-validation-for="Car_Name" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th>
+                    <label asp-for="Price"></label>
+                </th>
+                <td>
+                    <input asp-for="Price"  />
+                    <span asp-validation-for="Price" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th>
+                    <label asp-for="Color"></label>
+                    </th>
+                <td><input asp-for="Color"  />
+                    <span asp-validation-for="Color" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Passenger_Capacity"></label></th>
+                <td><input asp-for="Passenger_Capacity"  />
+                    <span asp-validation-for="Passenger_Capacity" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                 <th><label asp-for="Engine"></label></th>
+                <td><input asp-for="Engine"  />
+                    <span asp-validation-for="Engine" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Power"></label></th>
+                <td><input asp-for="Power"  />
+                    <span asp-validation-for="Power" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Automatic_Transmission"></label></th>
+                <td><input asp-for="Automatic_Transmission"  />
+                    <span asp-validation-for="Automatic_Transmission" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Cargo_Capacity"></label></th>
+                <td><input asp-for="Cargo_Capacity"  />
+                    <span asp-validation-for="Cargo_Capacity" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Acceleration"></label></th>
+                <td><input asp-for="Acceleration"  />
+                    <span asp-validation-for="Acceleration" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                 <th><label asp-for="City_Fuel_Economy"></label></th>
+                <td><input asp-for="City_Fuel_Economy"  />
+                    <span asp-validation-for="City_Fuel_Economy" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="High_Fuel_Economy"></label></th>
+                <td><input asp-for="High_Fuel_Economy"  />
+                    <span asp-validation-for="High_Fuel_Economy" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Image_File"></label></th>
+                <td><img src="~/images/@Model.Image_File" height="150" />
+         
+            <input type="hidden" asp-for="Image_File" />
+                    <input type="file" class="form-control" name="file" /></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <input type="submit" value="Save" class="btn-edit" />
+        <a class="btn-delete" asp-action="Index">Back to List</a>
+</div>
+</form>
+

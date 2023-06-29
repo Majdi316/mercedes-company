@@ -1,0 +1,56 @@
+﻿@model final.Models.ContactUs
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@{Layout = "~/Views/Shared/_admin.cshtml";}
+<head>
+    <link rel="stylesheet" href="~/css/admin-table.css" />
+</head>
+<div>
+    <div class="table-container">
+    <h1 class="heading">Are you sure you want to delete this?</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Email</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td data-label="ID">
+                    @Model.id
+                </td>
+                <td data-label="Name">
+                    @Model.Name
+                </td>
+                <td data-label="Subject">
+                    @Model.Subject
+                </td>
+                <td data-label="Message">
+                    @Model.Message
+                </td>
+                <td data-label="Email">
+                    @Model.Email
+                </td>
+                
+                
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
+
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn-delete" /> 
+    </form>
+</div>

@@ -1,0 +1,101 @@
+﻿@model final.Models.Cars
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+ <head>
+    <link rel="stylesheet" href="~/css/user-table2.css" />
+</head>
+
+
+<form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="table-container">
+    <h1 class="heading">bay This Car</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <td>value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>@Html.DisplayFor(model => model.id)</td>
+            </tr>
+            <tr>
+                <th>Car_Name</th>
+                <td>@Html.DisplayFor(model => model.Car_Name)</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>@Html.DisplayFor(model => model.Price)</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>@Html.DisplayFor(model => model.Color)</td>
+            </tr>
+            <tr>
+                <th>Passenger_Capacity</th>
+                <td>@Html.DisplayFor(model => model.Passenger_Capacity)</td>
+            </tr>
+            <tr>
+                <th>Engine</th>
+                <td>@Html.DisplayFor(model => model.Engine)</td>
+            </tr>
+            <tr>
+                <th>Power</th>
+                <td>@Html.DisplayFor(model => model.Power)</td>
+            </tr>
+            <tr>
+                <th>Automatic_Transmission</th>
+                <td>@Html.DisplayFor(model => model.Automatic_Transmission)</td>
+            </tr>
+            <tr>
+                <th>Cargo_Capacity</th>
+                <td>@Html.DisplayFor(model => model.Cargo_Capacity)</td>
+            </tr>
+            <tr>
+                 <th>Acceleration</th>
+                <td>@Html.DisplayFor(model => model.Acceleration)</td>
+            </tr>
+            <tr>
+                <th>City_Fuel_Economy</th>
+                <td>@Html.DisplayFor(model => model.City_Fuel_Economy)</td>
+            </tr>
+            <tr>
+                <th>High_Fuel_Economy</th>
+                <td>@Html.DisplayFor(model => model.High_Fuel_Economy)</td>
+            </tr>
+            <tr>
+                 <th>Image_File</th>
+                <td><img src="~/images/@Model.Image_File" height="250"  />
+            <br />@Model.Image_File</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" name="carid" value="@Model.id" readonly/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                 <label  class="control-label">quantity</label>
+                <input name="quantity" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Buy" class="btn-detail" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                     <a class="btn-delete" asp-controller="Cars" asp-action="catalogue">Cancel</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</form>
+
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{Layout = "~/Views/Shared/_admin.cshtml";}
+
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+
+
+<div class="table-container">
+    <h1 class="heading">oreders in the company</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Car_ID</th>
+                <th>User-ID</th>
+                <th>Quantity</th>
+                <th>DateTime</th>
+                <th>detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td data-label="ID">
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td data-label="Car_ID">
+                    @Html.DisplayFor(modelItem => item.car.id)
+                </td>
+                <td data-label="User-ID">
+                    @Html.DisplayFor(modelItem => item.user.id)
+                </td>
+                <td data-label="Quantity">
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td data-label="DateTime">
+                    @Html.DisplayFor(modelItem => item.dateTime)
+                </td>
+                
+                <td data-label="detail"><a class="btn-detail" asp-action="Details" asp-route-id="@item.id">Details</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

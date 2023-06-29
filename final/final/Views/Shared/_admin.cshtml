@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/admin-nav.css" />
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check" />
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <img src="~/images/Mercedes_Benz__logo.png" />
+        <ul>
+            <li><a href="#"><span style="color:white;">Mercedes</span>Benz</a></li>
+            <li><a asp-controller="Cars" asp-action="Create">add new car</a></li>
+            <li><a asp-controller="Cars" asp-action="Index">Manage cars</a></li>
+            <li><a asp-controller="Orders" asp-action="Index">Order reports</a></li>
+            <li><a asp-controller="UserAccounts" asp-action="Index">Cutomers List</a></li>
+            <li><a asp-controller="ContactUs" asp-action="Index">messages</a></li>
+            <li><a asp-controller="UserAccounts" asp-action="Logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <span style="color:white; font-weight:bold;">welcome @Context.Session.GetString("Name") to Mercedes<span style="color:red;font-weight:bold;"> Benz</span></span>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

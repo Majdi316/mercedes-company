@@ -1,0 +1,66 @@
+﻿@model final.Models.ContactUs
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+ <head>
+    <link rel="stylesheet" href="~/css/user-table2.css" />
+    <style>
+        input{
+            width:100%
+        }
+    </style>
+</head>
+
+ <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+<div class="table-container">
+    <h1 class="heading">contact us</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <td>value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><label asp-for="Name"></label></th>
+                <td><input asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th><label asp-for="Subject"></label></th>
+                <td><input asp-for="Subject"  />
+                    <span asp-validation-for="Subject" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th>
+                    <label asp-for="Message"></label>
+                </th>
+                <td>
+                    <textarea cols="70" rows="10" asp-for="Message"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span></td>
+            </tr>
+            <tr>
+                <th>
+                    <label asp-for="Email"></label>
+                    </th>
+                <td><input type="email" asp-for="Email"  />
+                    <span asp-validation-for="Email" class="text-danger"></span></td>
+            </tr>
+            
+            
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <input type="submit" value="Save" class="btn-detail" />
+        <a class="btn-delete" asp-controller="Cars" asp-action="catalogue">Cancel</a>
+</div>
+</form>
+

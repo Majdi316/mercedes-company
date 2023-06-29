@@ -1,0 +1,41 @@
+﻿@model IEnumerable<final.Models.Cars>
+
+@{
+    ViewData["Title"] = "catalogue";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+<head>
+    <link rel="stylesheet" href="~/css/user-table1.css" />
+</head>
+
+<div style="text-align:center;">
+<form asp-action="Search2">
+    <label for="sear"></label>
+    <input type="search" id="sear" name="sear"/>
+    <input type="submit" value="search" />
+</form></div>
+<div class="table-container">
+    <h1 class="heading">cars in the company</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Car_Name</th>
+                <th>Image_File</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                
+                <td data-label="Car_Name">
+                    @item.Car_Name
+                <td data-label="Image_File"><img src="~/images/@item.Image_File" height="150" /> <br/>
+                        price:@item.Price</td>
+                <td data-label="#"><a class="btn-detail" asp-controller="Orders" asp-action="Create" asp-route-id="@item.id">BAY</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

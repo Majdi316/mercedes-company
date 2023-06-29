@@ -1,0 +1,56 @@
+﻿@model IEnumerable<final.Models.ContactUs>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{Layout = "~/Views/Shared/_admin.cshtml";}
+
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+<div style="text-align:center;">
+<form asp-action="Search">
+    <label for="sear"></label>
+    <input type="search" id="sear" name="sear"/>
+    <input type="submit"  value="search" />
+</form></div>
+
+<div class="table-container">
+    <h1 class="heading">contact us</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Email</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td data-label="ID">
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td data-label="Name">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td data-label="Subject">
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td data-label="Message">
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td data-label="Email">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                
+                
+                <td data-label="delete"><a class="btn-delete" asp-action="Delete" asp-route-id="@item.id">Delete</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

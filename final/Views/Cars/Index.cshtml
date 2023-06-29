@@ -1,0 +1,61 @@
+﻿@model IEnumerable<final.Models.Cars>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{Layout = "~/Views/Shared/_admin.cshtml";}
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+<div style="text-align:center;">
+<form asp-action="Search">
+    <label for="sear"></label>
+    <input type="search" id="sear" name="sear"/>
+    <input type="submit" class="search" value="search" />
+</form></div>
+<div class="table-container">
+    <h1 class="heading">cars in the company</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Car_Name</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Power</th>
+                <th>Image_File</th>
+                
+                <th>edit</th>
+                <th>detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td data-label="ID">
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td data-label="Car_Name">
+                    @Html.DisplayFor(modelItem => item.Car_Name)
+                </td>
+                <td data-label="Price">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td data-label="Color">
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td data-label="Power">
+                    @Html.DisplayFor(modelItem => item.Power)
+                </td>
+                <td data-label="Image_File"><span class="text_open">
+                    @Html.DisplayFor(modelItem => item.Image_File)
+                </span></td>
+                
+                <td data-label="edit"><a class="btn-edit" asp-action="Edit" asp-route-id="@item.id">Edit</a></td>
+                <td data-label="detail"><a class="btn-detail" asp-action="Details" asp-route-id="@item.id">Details</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

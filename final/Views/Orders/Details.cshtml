@@ -1,0 +1,41 @@
+﻿@model final.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{Layout = "~/Views/Shared/_admin.cshtml";}
+
+        <head>
+    <link rel="stylesheet" href="~/css/admin-table.css" />
+</head>
+<div class="table-container">
+    <h1 class="heading">Details Of This Order</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>@Html.DisplayFor(model => model.id)</td>
+            </tr>
+            <tr>
+                <th>Car_ID</th>
+                <td>@Html.DisplayFor(model => model.car.id)</td>
+            </tr>
+             <tr>
+                <th>User_ID</th>
+                <td>@Html.DisplayFor(model => model.user.id)</td>
+            </tr>
+            <tr>
+                <th>quantity</th>
+                <td>@Html.DisplayFor(model => model.quantity)</td>
+            </tr>
+            <tr>
+                <th>dateTime</th>
+                <td>@Html.DisplayFor(model => model.dateTime)</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <br />
+    <br />
+        <a class="btn-delete" asp-action="Index">Back to List</a>
+</div>
